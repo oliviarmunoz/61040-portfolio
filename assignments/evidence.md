@@ -64,3 +64,5 @@ _Comparables:_
 - [How Far Did I Run?](https://onthegomap.com/#/create): Calculates distance but lacks path discovery.
 
 - [Strava](https://strava.com): Social fitness app focused on progress tracking rather than personalized route finding.
+
+[Next: Features](features.md)

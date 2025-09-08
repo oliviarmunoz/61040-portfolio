@@ -17,4 +17,4 @@
   - Keeping Pace: It’s easy to unintentionally speed up or slow down while running. I want a way to maintain an ideal pace without constantly checking my watch or relying on others.
   - Playlists: I enjoy listening to the same songs when I run, but after some time, I like to switch things up. Sometimes I'm in the mood to listen to something new, or just something different. I hate having to run without music, so it would also be nice to tailor it to my running speed.
 
-[Problem Selection](selection.md)
+[Next: Problem Selection](selection.md)

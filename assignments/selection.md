@@ -12,3 +12,5 @@
 - Invest: I did not choose this problem because I think there is a lot of risk with recommending things to invest in (market manipulation?), especially if things don't end up being succesfull for the average person.
 - Keeping Pace: I did not choose this problem because I think there are many ways to go about addressing this issue. For example, you can probably just listen to songs with a certain BPM or use tracking apps on your watch. I don't know if there would be a lot of use for it beyond just this one specific goal, so it might be hard to expand.
 - Playlist: I did not choose this problem because there are already existing products that address this issue (think Spotify AI generated playlists). I think it is a good idea, but it isn't very reusable. Once someone has made a playlist, they don't necessarily need to make another one.
+
+[Next: Stakeholders](stakeholder.md)

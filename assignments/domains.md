@@ -26,3 +26,5 @@ During busy weeks or exam season, I often lose track of how I’m spending money
 #### 3. **Running Paths**
 
 I enjoy long-distance running, especially outdoors. However, I often get bored of running the same routes. Treadmills bore me, and existing running apps often focus on tracking stats rather than helping me discover interesting or scenic routes that fit my mood, schedule, or environment. I’d love a way to discover interesting or new running paths that match my preferences.
+
+[Next: Problems](problems.md)
