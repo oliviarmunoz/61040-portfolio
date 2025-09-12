@@ -20,4 +20,5 @@ _Personal:_
 
 _Assignments:_
 
-- [Link to Assignment 1](assignments/assignment1.md)
+- [Link to Assignment 1](assignments/assignment1/assignment1.md)
+- [Link to Pset 1](assignments/pset1/pset1.md)
