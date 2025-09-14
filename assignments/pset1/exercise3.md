@@ -21,17 +21,17 @@ concept PersonalAccessToken [User]
       a set of Tokens
 
     a set of Tokens with
-      a token String
+      a tokenString String
       an expiration DateTime
-      a set of scopes String
+      a scope String
 
   actions
     createToken (user: User, scope: String, expiration: DateTime): (token: Token)
-      requires: a valid existing user
+      requires: an existing user
       effects: create a new token for the user with the given scope that expires in expiration time
 
     authenticate (user: User, tokenString: String)
-      requires: user has a valid token with matching token string
+      requires: the user exists and has this token with matching tokenString that is not expired
       effects: grant access with the permissions defined by the token's scope
 
     removeToken (user: User, tokenString: String)

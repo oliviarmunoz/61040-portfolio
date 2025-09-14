@@ -10,8 +10,9 @@ _Questions_
   state
 
       a set of Users with
-          a username String
+          a username Username
       a set of Usernames with
+          a username String
           a password String
   ```
 
@@ -21,12 +22,12 @@ _Questions_
   actions
 
   register (username: String, password: String): (user: User)
-      requires: a valid and unique username (from the currently exisiting usernames)
+      requires: a valid and unique username (from the currently existing usernames)
       effects: creates and returns a new User with the username and password. Has no effect if the user is already registered.
 
-  authenticate (username: String, password: String): (user: User)
-      requires: a valid username and password combination that exists
-      effects: returns the User with the associated username and password. Has no effect if the username does not exist or if it doesn't match with the password.
+  authenticate (username: Username): (user: User)
+      requires: a valid Username (username and password combination that exists)
+      effects: returns the User with the associated Username. Has no effect if the username does not exist or if it doesn't match with the password.
   ```
 
 - What essential invariant must hold on the state? How is it preserved?
@@ -39,9 +40,10 @@ _Questions_
   state
 
       a set of Users with
-          a username String
+          a username Username
           a verified String
       a set of Usernames with
+          a username String
           a password String
           a token String
   ```
@@ -53,7 +55,7 @@ _Questions_
     requires: a valid and unique username
     effects: creates and returns a new User with the username and password. Emails the token to the user for verification. Has no effect if the user is already registered.
 
-  confirm (username: String, token: String):
-    requires: a valid username and token combination
-    effects: verifies the User with that username by setting the `verifed` flag to true. Has no effect if the token is not associated with that username or if the username is invalid.
+  confirm (username: Username, token: String):
+    requires: an existing Username that has the token
+    effects: verifies the User with that username by setting the `verified` flag to true. Has no effect if the token is not associated with that username or if the username is invalid.
   ```
