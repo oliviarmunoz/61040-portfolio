@@ -1,6 +1,6 @@
 # Problem Set 1
 
-### Reading and Writing Concepts
+## Reading and Writing Concepts
 
 _Click the links below to access the different pages!_
 

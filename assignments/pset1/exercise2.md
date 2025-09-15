@@ -1,8 +1,8 @@
 # Exercise 2
 
-### Extending a familiar concept
+## Extending a familiar concept
 
-_Questions_
+### Questions
 
 - Complete the definition of the concept state.
 
@@ -10,8 +10,6 @@ _Questions_
   state
 
       a set of Users with
-          a username Username
-      a set of Usernames with
           a username String
           a password String
   ```
@@ -22,17 +20,17 @@ _Questions_
   actions
 
   register (username: String, password: String): (user: User)
-      requires: a valid and unique username (from the currently existing usernames)
-      effects: creates and returns a new User with the username and password. Has no effect if the user is already registered.
+      requires: the username is unique from the currently existing usernames and only contains English characters or numbers.
+      effects: creates and returns a new User that is associated with the username and password.
 
-  authenticate (username: Username): (user: User)
-      requires: a valid Username (username and password combination that exists)
-      effects: returns the User with the associated Username. Has no effect if the username does not exist or if it doesn't match with the password.
+  authenticate (username: String, password: String): (user: User)
+      requires: a valid username and password combination that exists already
+      effects: returns the User with the associated username. Has no effect if the username does not exist or if it doesn't match with the password.
   ```
 
 - What essential invariant must hold on the state? How is it preserved?
 
-  - The usernames are all unique and have exactly one associated password. It is preserved by the `requires` clause for register.
+  - The usernames are all unique and have exactly one password. It is preserved by the `requires` clause for register.
 
 - One widely used extension of this concept requires that registration be confirmed by email. Extend the concept to include this functionality. (Hints: you should add (1) an extra result variable to the register action that returns a secret token that (via a sync) will be emailed to the user; (2) a new confirm action that takes a username and a secret token and completes the registration; (3) whatever additional state is needed to support this behavior.)
 
@@ -41,21 +39,21 @@ _Questions_
 
       a set of Users with
           a username Username
-          a verified String
-      a set of Usernames with
-          a username String
           a password String
-          a token String
+          a verified Flag
+          a secretToken String
   ```
 
   ```
   actions
 
-  register (username: String, password: String): (user: User, token: String)
-    requires: a valid and unique username
-    effects: creates and returns a new User with the username and password. Emails the token to the user for verification. Has no effect if the user is already registered.
+  register (username: String, password: String): (user: User, secretToken: String)
+    requires: the username is unique from the currently existing usernames and only contains English characters or numbers.
+    effects: creates and returns a new User that is associated with the username and password. Also returns a unique secretToken, which is emailed to the user for verification. Sets the verified Flag for the new User to `False`.
 
-  confirm (username: Username, token: String):
-    requires: an existing Username that has the token
-    effects: verifies the User with that username by setting the `verified` flag to true. Has no effect if the token is not associated with that username or if the username is invalid.
+  confirm (username: String, secretToken: String):
+    requires: an existing User with the username that is associated with the secretToken
+    effects: verifies the User with that username by setting the `verified` Flag to `True`. Has no effect if the token is not associated with that username or if the username is invalid.
   ```
+
+  [Link to Exercise 3](exercise3.md)

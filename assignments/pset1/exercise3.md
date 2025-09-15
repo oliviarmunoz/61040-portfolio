@@ -1,18 +1,20 @@
 # Exercise 3
 
-### Comparing concepts
+## Comparing concepts
+
+### Personal Access Tokens
 
 ```
-concept PersonalAccessToken [User]
+concept PersonalAccessToken
   purpose
-    allow limited access to known users without using the account password
+    allows a user to authenticate to a service (with limited/scoped permissions) without using their account password
 
   principle
     after a user registers with a username and password,
-    they can create a personal access token (PAT).
-    Then they can authenticate with that same username and the token string,
-    and be treated each time as the same user,
-    but only with the access permitted by the token’s scopes.
+    they can create a personal access token (PAT), each with a defined scope of permissions and an expiration date;
+    then, they can authenticate using their username and a token string instead of their password (if the token is valid);
+    on successful authentication, the user is treated as themselves, but limited to the access permitted by the token’s scope;
+    a token becomes invalid if it is revoked or after it expires.
 
   state
     a set of Users with
@@ -22,24 +24,26 @@ concept PersonalAccessToken [User]
 
     a set of Tokens with
       a tokenString String
-      an expiration DateTime
       a scope String
+      an expiration DateTime
 
   actions
     createToken (user: User, scope: String, expiration: DateTime): (token: Token)
-      requires: an existing user
-      effects: create a new token for the user with the given scope that expires in expiration time
+      requires: an existing user. The scope must not define new privileges; only existing privileges can be assigned. Expiration must be in the future.
+      effects: create a new Token for the user with an auto-generated tokenString with the given scope that expires in expiration time
 
     authenticate (user: User, tokenString: String)
-      requires: the user exists and has this token with matching tokenString that is not expired
-      effects: grant access with the permissions defined by the token's scope
+      requires: the user exists and has a non-expired Token with the same tokenString associated with it
+      effects: grant access to the user with the permissions defined by the token's scope
 
     removeToken (user: User, tokenString: String)
-      requires: user has a valid token with this token string
-      effects: removes the token from the user's set of Tokens
+      requires: the user exists and has a non-expired Token with the same tokenString associated with it
+      effects: removes the Token from the User's set of Tokens
 
 ```
 
-The main difference between the PersonalAccessToken and the PasswordAuthentication is in their use case. Passwords grant unrestricted access to the user's account, while a personal access token (PAT) grants limited access to a specific part of the account. In addition, PATs are typically more secure because of their time limit, so they cannot be used after a certain period of time. Finally, PATs are mostly used in the command line while passwords are typically used on some sort of web interface.
+The main difference between the PersonalAccessToken and PasswordAuthentication is in their use case. A password grants full, unrestricted access to the User’s account but a personal access token (PAT) grants limited (scoped) access to specific resources or operations within the account. In addition, PATs offer some security benefits. The first is that PATs become invalid after an expiration date, so users must keep them updated. Also, for each User, multiple tokens can coexist, each with different scopes and lifespans, so access can be more flexible.
 
-I would change the GitHub documentation to make these differences more explicit. Upon first glance, the differences between a PAT and a password are hard to understand and it's not immediately obvious when you would use one over the other. The first change to make would be to address these differences at the beginning of the document and then follow it with how to create/delete/use it.
+The GitHub documentation could be improved by clearly differentiating PATs from passwords at the start of the article. Currently, the page describes PATs as “an alternative to using passwords” and advises readers to “treat them like passwords,” which may create confusion on when to use one over the other. I would suggest adding more information highlighting the differences between the two and then following that with details on how to implement/use PATs.
+
+[Link to Exercise 4](exercise4.md)
