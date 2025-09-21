@@ -14,7 +14,7 @@
             requires a valid shortUrl (not expired)
             effect increases the count associated with shortUrl by 1
         getCount (user: User, shortUrl: ShortUrl): (count: Number)
-            requires user is the owner
+            requires user is the owner of the shortUrl
             effect returns the number of times shortUrl has been accessed
 
 ```
@@ -58,7 +58,7 @@
         when
             Request.getAnalytics (shortUrl, user)
         then
-            CountAnalytics.getCount(shortUrl): (count)
+            CountAnalytics.getCount(user, shortUrl): (count)
 
 ```
 
