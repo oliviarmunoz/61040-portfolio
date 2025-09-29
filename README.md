@@ -10,7 +10,7 @@ Some fun facts about me:
 2. My birthday is on Halloween.
 3. I have 3 siblings.
 
-![picture of Olivia!](olivia_vader.jpg)
+![picture of Olivia!](images/olivia_vader.jpg)
 
 # Table of Contents
 
@@ -23,3 +23,4 @@ _Assignments:_
 - [Link to Assignment 1](assignments/assignment1/assignment1.md)
 - [Link to Pset 1](assignments/pset1/pset1.md)
 - [Link to Pset 2](assignments/pset2/pset2.md)
+- [Link to Assignment 2](assignments/assignment2/assignment2.md)
