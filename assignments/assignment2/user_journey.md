@@ -1,6 +1,6 @@
 # User Journey
 
-A user has just signed up for the app and wants help deciding what to eat for dinner. They create a profile, entering their dietary preferences (likes sweets, avoids peanuts). The app saves these preferences in their profile. That evening, the user opens the app and selects a nearby restaurant from the Home page. The app pulls the restaurant’s menu and combines it with the user’s stored preferences.
+A user has just signed up for the app and wants help deciding what to eat for dinner. They create a profile, entering their dietary preferences (likes sweets, wants to hit protein goals, avoids peanuts). The app saves these preferences in their profile. That evening, the user opens the app and selects a nearby restaurant from the Home page. The app pulls the restaurant’s menu and combines it with the user’s stored preferences.
 
 The user clicks on a restaurant and the app runs the recommendation process: it considers the menu dishes, applies the user’s preferences, and suggests a peanut-free noodle bowl. Relieved they don’t have to scan the entire menu, the user heads to the restaurant. After their meal, the user indicates if they liked the recommendation to update their list of preferences.
 
